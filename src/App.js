@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { AddCar } from "./AddCar.js"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Title />
+      <AddCar />
     </div>
   );
 }
 
-export default App;
+function Title(){
+  const title = "Virtual Galery.";
+  const showTitle = true;
+
+  return(
+    <div>
+      <h1> {showTitle ? title : "None"} </h1>
+      {/* CONDITION ? DoTHIS : ELSE */}
+      <p> This is where we can list the cars </p>
+      <AddCar />
+    </div>
+  );
+}
+
+export default App();
