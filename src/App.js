@@ -1,25 +1,32 @@
-import AddCar from "./AddCar.js";
 import React from "react";
+import { useState } from "react";
 
 function App() {
   return (
     <div className="App">
-      <Title />
+      <ButtonState />
     </div>
   );
 }
 
-function Title() {
-  const title = "Virtual Gallery.";
-  const showTitle = true;
+function ButtonState() {
+  const [title, setTitle] = useState("This");
+  const [count, setCount] = useState(0);
+
+  const updateTitleClicked = () => {
+    setTitle("PenisPenisPenis");
+  };
+
+  const updateCountClicked = () => {
+    setCount(count + 1);
+  };
 
   return (
     <div>
-      <h1> {showTitle ? title : "None"} </h1>
-      {/* CONDITION ? DoTHIS : ELSE */}
-      <p> This is where we can list the cars </p>
-      <AddCar text="Enter Car" number={2} />
-      <AddCar />
+      <p>Title: {title} </p>
+      <p>Counter: {count}</p>
+      <button onClick={updateTitleClicked}> Update Title </button>
+      <button onClick={updateCountClicked}> Update Count </button>
     </div>
   );
 }
