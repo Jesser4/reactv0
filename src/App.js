@@ -13,10 +13,10 @@ function App() {
   };
 
   const addCarToData = (item) => {
-    let items = data["items"];
+    let items = data["items"]; // get what is already existing
     item.id = items.length;
-    items.push(item);
-    setData({ items: items });
+    items.push(item); // update array
+    setData({ items: items }); //set to new array
     console.log(data);
   };
 
