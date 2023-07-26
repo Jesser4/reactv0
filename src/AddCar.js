@@ -1,23 +1,27 @@
 import { useState } from "react";
 
-function SearchBar(props) {
+function AddCar(props) {
   const [name, setName] = useState("");
   const [year, setYear] = useState();
   const [brand, setBrand] = useState("");
   const [champion, setChampion] = useState(false);
 
-  const searchButtonClick = () => {
-    props.updateSearchParams({
+  const addCarButtonClick = () => {
+    props.addCar({
       name: name,
       year: year,
       brand: brand,
       champion: champion,
     });
+    setName("");
+    setYear(0);
+    setBrand("");
+    setChampion(false);
   };
 
   return (
     <div>
-      <h2>Search for a Car</h2>
+      <h2>Add a Car</h2>
       <form>
         <label for="name-field">Name:</label>
         <input
@@ -44,15 +48,15 @@ function SearchBar(props) {
         <input
           id="champion-field"
           type="checkbox"
-          value={champion}
+          checked={champion}
           onChange={(e) => setChampion(e.target.checked)}
         />
-        <button type="button" onClick={searchButtonClick}>
-          Search
+        <button type="button" onClick={addCarButtonClick}>
+          Add Car
         </button>
       </form>
     </div>
   );
 }
 
-export default SearchBar;
+export default AddCar;

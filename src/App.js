@@ -1,25 +1,30 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import { useState } from "react";
+import AddCar from "./AddCar";
+import CarDisplay from "./CarDisplay";
 
 function App() {
-  const [data, setData] = useState({});
+  const [filters, setFilters] = useState({});
+  const [data, setData] = useState({ items: [] });
 
-  const updateData = (searchParams) => {
-    setData(searchParams);
+  const updateFilters = (searchParams) => {
+    setFilters(searchParams);
   };
+
+  const addCarToData = (item) => {
+    let items = data["items"];
+    item.id = items.length;
+    items.push(item);
+    setData({ items: items });
+    console.log(data);
+  };
+
   return (
     <div className="App">
-      <SearchBar callback={updateData} />
-      <p>Name: {"name" in data ? data["name"] : "No name to display"}</p>
-      <p>Year: {"year" in data ? data["year"] : "No year to display"}</p>
-      <p>Brand: {"brand" in data ? data["brand"] : "No brand to display"}</p>
-      <p>
-        Champion:{" "}
-        {"champion" in data
-          ? data["champion"].toString()
-          : "No champion status"}{" "}
-      </p>
+      <SearchBar updateSearchParams={updateFilters} />
+      <CarDisplay items={data["items"]} />
+      <AddCar addCar={addCarToData} />
     </div>
   );
 }
