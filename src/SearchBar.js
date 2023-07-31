@@ -2,12 +2,16 @@ import { useState } from "react";
 
 function SearchBar(props) {
   const [name, setName] = useState("");
+
   const [year, setYear] = useState();
+
   const [brand, setBrand] = useState("");
   const [champion, setChampion] = useState(false);
 
   const searchButtonClick = () => {
+
     props.updateSearchParams({
+
       name: name,
       year: year,
       brand: brand,

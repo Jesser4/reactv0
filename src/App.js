@@ -25,6 +25,7 @@ function App() {
       <SearchBar updateSearchParams={updateFilters} />
       <CarDisplay items={data["items"]} />
       <AddCar addCar={addCarToData} />
+
     </div>
   );
 }
