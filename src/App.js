@@ -28,15 +28,15 @@ function App() {
     }
 
     for (const item of data) {
-      if (item.name !== filters.name && filters.name !== "") {
+      if (filters.name !== "" && item.name !== filters.name) {
         continue;
       }
 
-      if (item.year !== filters.year && filters.year !== 0) {
+      if (filters.year !== 0 && item.year !== filters.year) {
         continue;
       }
 
-      if (item.brand !== filters.brand && filters.brand !== "") {
+      if (filters.brand !== "" && item.brand !== filters.brand) {
         continue;
       }
 
