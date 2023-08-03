@@ -20,12 +20,47 @@ function App() {
     console.log(data);
   };
 
-  return (
-    <div className="App">
-      <SearchBar updateSearchParams={updateFilters} />
-      <CarDisplay items={data["items"]} />
-      <AddCar addCar={addCarToData} />
+  const filterData = (data) => {
+    const filteredData = [];
 
+    if (!filters.name) {
+      return data;
+    }
+
+    for (const item of data) {
+      if (item.name !== filters.name && filters.name !== "") {
+        continue;
+      }
+
+      if (item.year !== filters.year && filters.year !== 0) {
+        continue;
+      }
+
+      if (item.brand !== filters.brand && filters.brand !== "") {
+        continue;
+      }
+
+      if (item.champion !== filters.champion) {
+        continue;
+      }
+
+      filteredData.push(item);
+    }
+
+    return filteredData;
+  };
+
+  return (
+    <div className="container">
+      <div className="row mt-3">
+        <CarDisplay items={filterData(data["items"])} />
+      </div>
+      <div className="row mt-3">
+        <SearchBar updateSearchParams={updateFilters} />
+      </div>
+      <div className="row mt-3">
+        <AddCar addCar={addCarToData} />
+      </div>
     </div>
   );
 }

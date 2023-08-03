@@ -21,41 +21,48 @@ function AddCar(props) {
 
   return (
     <div>
+      <div className="container">
+        <div className="row">
       <h2>Add a Car</h2>
-      <form>
+        </div>
+        <div className="row">
         <label for="name-field">Name:</label>
         <input
           id="name-field"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-        />
+        /></div>
+        <div className="row">
         <label for="year-field">Year:</label>
         <input
           id="year-field"
           type="number"
           value={year}
           onChange={(e) => setYear(e.target.value)}
-        />
+        /></div>
+        <div className="row">
         <label for="brand-field">Brand:</label>
         <input
           id="brand-field"
           type="text"
           value={brand}
           onChange={(e) => setBrand(e.target.value)}
-        />
+        /></div>
         <label for="champion-field">World Champion:</label>
         <input
           id="champion-field"
           type="checkbox"
           checked={champion}
           onChange={(e) => setChampion(e.target.checked)}
-        />
-        <button type="button" onClick={addCarButtonClick}>
+        /></div>
+        <div className="row">
+          <div className="col-5" />
+        <button type="button" className='btn btn-primary col-2' onClick={addCarButtonClick}>
           Add Car
         </button>
-      </form>
-    </div>
+        </div>
+      </div>
   );
 }
 
