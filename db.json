@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "name": "AM14",
+      "year": "2014",
+      "brand": "Aston",
+      "champion": false,
+      "id": 1
+    },
+    {
+      "name": "am14",
+      "year": "2012",
+      "brand": "aston",
+      "champion": true,
+      "id": 2
+    },
+    {
+      "name": "am14",
+      "year": "2012",
+      "brand": "aston",
+      "champion": false,
+      "id": 3
+    }
+  ]
+}

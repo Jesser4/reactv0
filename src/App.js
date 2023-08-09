@@ -14,33 +14,38 @@ function App() {
 
   const addCarToData = (item) => {
     let items = data["items"]; // get what is already existing
-    item.id = items.length;
-    items.push(item); // update array
-    setData({ items: items }); //set to new array
-    console.log(data);
+
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(item),
+    };
+
+    fetch("http://localhost:3000/items", requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        items.push(data);
+        setData({ items: items });
+      });
   };
 
   const filterData = (data) => {
     const filteredData = [];
 
-    if (!filters.name) {
+    if (!filters.name && !filters.year && !filters.brand && !filters.champion) {
       return data;
     }
 
     for (const item of data) {
       if (filters.name !== "" && item.name !== filters.name) {
         continue;
-      }
-
-      if (filters.year !== 0 && item.year !== filters.year) {
+      } else if (filters.year !== 0 && item.year !== filters.year) {
         continue;
-      }
-
-      if (filters.brand !== "" && item.brand !== filters.brand) {
+      } else if (filters.brand !== "" && item.brand !== filters.brand) {
         continue;
-      }
-
-      if (item.champion !== filters.champion) {
+      } else if (item.champion !== filters.champion) {
         continue;
       }
 

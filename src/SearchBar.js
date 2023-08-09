@@ -2,9 +2,7 @@ import { useState } from "react";
 
 function SearchBar(props) {
   const [name, setName] = useState("");
-
   const [year, setYear] = useState(0);
-
   const [brand, setBrand] = useState("");
   const [champion, setChampion] = useState(false);
 
