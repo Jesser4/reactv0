@@ -7,6 +7,14 @@ function CarDisplay(props) {
         <td>{item.year}</td>
         <td>{item.brand}</td>
         <td>{item.champion.toString()}</td>
+        <td>
+          <button
+            className="btn btn-danger"
+            onClick={() => props.deleteItem(item)}
+          >
+            Delete
+          </button>
+        </td>
       </tr>
     );
   };
@@ -25,6 +33,7 @@ function CarDisplay(props) {
               <th scope="col">Year</th>
               <th scope="col">Brand</th>
               <th scope="col">Champion</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>{props.items.map(showCars)}</tbody>
